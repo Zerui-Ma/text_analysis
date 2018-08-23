@@ -1,0 +1,7 @@
+__pycache__
+/data/classification/*
+/data/clustering/*
+/data/model/*
+/data/plot/*
+/data/raw/*
+/data/userdict/*
