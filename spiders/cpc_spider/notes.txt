@@ -1,0 +1,4 @@
+1. settings.py --> FEED_EXPORT_ENCODING = 'utf-8'
+2. export json 前删除原文件
+3. c = response.xpath('//div[@class="p_tab"]')
+3. c.xpath('./h2[1]/following-sibling::*')[3].re(r'^<h2>')
