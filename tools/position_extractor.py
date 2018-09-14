@@ -36,7 +36,7 @@ for p in positions:
 positions = positions | main_positions
 print(positions)
 remove_set = set(['公安系统', '总局局长', '局局长', '公司', '总公司', '开除党籍', '职务', '厅', '官', '总', '室主任'])
-add_set = set(['主任', '风险官', '常委', '信息官', '处长', '参谋', '参事'])
+add_set = set(['主任', '风险官', '常委', '信息官', '处长', '参谋', '参事', '党组成员'])
 positions = positions - remove_set
 positions = positions | add_set
 

@@ -4,6 +4,7 @@
 
 import os
 import pickle
+import jieba
 
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -11,6 +12,9 @@ ROOT_DIR = os.path.abspath(os.path.join(SCRIPT_DIR, ".."))
 DICT_DIR = os.path.join(ROOT_DIR, 'data', 'userdict')
 MODEL_DIR = os.path.join(ROOT_DIR, 'data', 'model')
 PLOT_DIR = os.path.join(ROOT_DIR, 'data', 'plot')
+RAW_DIR = os.path.join(ROOT_DIR, 'data', 'raw')
+with open(os.path.join(DICT_DIR, 'stopwords.pk'), 'rb') as fp:
+    stopwords = pickle.load(fp)
 
 def generate_vocab(file_path, top_k):
         '''
@@ -47,3 +51,10 @@ def stopwords_txt2pickle():
 
     with open(os.path.join(DICT_DIR, 'stopwords.pk'), 'wb') as fp:
         pickle.dump(word_list, fp)
+
+
+def preprocess_file(filepath):
+    with open(filepath, 'r', encoding='utf-8') as fp:
+        tokens = jieba.lcut(fp.read())
+
+    return ' '.join([t for t in tokens if t not in stopwords])

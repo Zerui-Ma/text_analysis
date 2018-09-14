@@ -11,7 +11,6 @@ class TextClassifierTfidf(TextClassifierBase):
     def __init__(self, level, userdict=None):
         super().__init__(userdict)
         self.level = level
-        self.vectorizer = None
 
     def generate_feature_vectors(self, text_list, vocab=None):
         if not self.vectorizer:
